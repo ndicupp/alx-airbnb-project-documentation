@@ -1,1 +1,165 @@
+# alx-airbnb-project-documentation
+
+Input: Payment details, booking amounts, refund requests
+
+Process: Process payments, handle refunds, manage payouts
+
+Output: Payment records, transaction receipts, payout records
+
+Data Stores: Payments database, Transactions log
+
+Process 5: Review System
+
+Input: Ratings, reviews, photos, responses
+
+Process: Validate review eligibility, moderate content, calculate averages
+
+Output: Review records, average ratings, host responses
+
+Data Stores: Reviews database, Ratings summary
+
+Process 6: Messaging System
+
+Input: Messages, attachments, read receipts
+
+Process: Route messages, manage conversations, send notifications
+
+Output: Message threads, notification alerts
+
+Data Stores: Messages database, Notifications queue
+
+Data Stores:
+Users Database
+
+User profiles
+
+Authentication data
+
+Preferences
+
+Account settings
+
+Properties Database
+
+Property details
+
+Amenities
+
+Location data
+
+Host information
+
+Bookings Database
+
+Reservation records
+
+Guest information
+
+Booking status
+
+Cancellation history
+
+Payments Database
+
+Transaction records
+
+Payment methods
+
+Refund history
+
+Payout schedules
+
+Reviews Database
+
+Review content
+
+Ratings data
+
+Host responses
+
+Reported reviews
+
+Messages Database
+
+Message threads
+
+Conversation history
+
+Attachment metadata
+
+Key Data Flows:
+Booking Flow:
+
+Guest → Search criteria → Property Management → Available properties
+
+Guest → Booking request → Booking Management → Availability check
+
+Booking Management → Payment request → Payment Processing
+
+Payment Processing → Payment Gateway → Transaction confirmation
+
+Payment Processing → Booking confirmation → Booking Management
+
+Booking Management → Confirmation → Guest & Host
+
+Property Listing Flow:
+
+Host → Property data → Property Management → Validation
+
+Property Management → Store data → Properties Database
+
+Property Management → Availability updates → Availability Calendar
+
+Payment Flow:
+
+Guest → Payment details → Payment Processing → Payment Gateway
+
+Payment Gateway → Transaction status → Payment Processing
+
+Payment Processing → Store transaction → Payments Database
+
+Payment Processing → Payout schedule → Host payments
+
+Data Validation Points:
+User Input Validation
+
+Email format verification
+
+Password strength check
+
+Profile data sanitization
+
+Booking Validation
+
+Date availability check
+
+Guest count validation
+
+Conflict detection
+
+Payment Validation
+
+Payment method verification
+
+Amount calculation accuracy
+
+Fraud detection checks
+
+Content Validation
+
+Review content moderation
+
+Image format validation
+
+Spam detection
+
+Security Considerations:
+Data Encryption: Sensitive data (passwords, payment info) encrypted
+
+Input Sanitization: All user inputs validated and sanitized
+
+Access Control: Role-based data access
+
+Audit Trail: All critical operations logged
+
 
