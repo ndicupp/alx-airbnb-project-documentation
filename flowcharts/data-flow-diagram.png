@@ -1,1 +1,199 @@
+Property Booking Process - Flowchart Documentation
+Process Overview:
+The property booking process handles the complete journey from searching for a property to confirming a booking, including availability checks, payment processing, and confirmation notifications.
 
+Flowchart Steps:
+1. Start Booking Process
+
+Trigger: User selects dates and clicks "Book Now"
+
+Input: Property ID, check-in/check-out dates, number of guests
+
+2. User Authentication Check
+IF user is not logged in:
+  → Redirect to login/registration
+  → Return to booking after authentication
+ELSE:
+  → Proceed to availability validation
+
+3. Availability Validation
+
+Query availability calendar for selected dates
+
+Check against existing bookings
+
+Validate maximum guest capacity
+
+IF dates are unavailable:
+  → Show error: "Selected dates not available"
+  → Return to property page
+ELSE:
+  → Proceed to price calculation
+4. Price Calculation
+
+Calculate nightly rates for selected period
+
+Add cleaning fee
+
+Add service fee (platform commission)
+
+Apply any applicable discounts/promotions
+
+Calculate total amount
+
+Display price breakdown to user
+
+5. Booking Reservation Creation
+
+Create temporary booking reservation (pending payment)
+
+Hold dates for 15-minute payment window
+
+Generate unique booking reference ID
+
+6. Payment Processing
+
+User enters payment details
+
+Validate payment information
+
+Process payment through payment gateway
+
+text
+IF payment failed:
+  → Release date hold
+  → Show payment error message
+  → Return to payment step
+ELSE IF payment successful:
+  → Proceed to booking confirmation
+7. Booking Confirmation
+
+Update booking status from "pending" to "confirmed"
+
+Permanently block dates in availability calendar
+
+Generate booking confirmation details
+
+8. Notification System
+
+Send confirmation email to guest
+
+Booking details
+
+Receipt
+
+Host information
+
+Send notification to host
+
+New booking alert
+
+Guest details
+
+Booking dates
+
+9. Database Updates
+
+Update bookings table with confirmed status
+
+Update availability calendar
+
+Create payment transaction record
+
+Generate invoice record
+
+10. End Process
+
+Display success page to user
+
+Provide booking management options
+
+Redirect to user's booking dashboard
+
+Exception Handling:
+A. Date Conflicts During Payment
+
+If dates become unavailable during payment process
+
+Automatic rollback of temporary reservation
+
+Notify user: "Dates no longer available"
+
+Return to property search
+
+B. Payment Timeout
+
+15-minute payment window expiration
+
+Automatic release of held dates
+
+User notification: "Booking session expired"
+
+C. System Failures
+
+Database connection issues
+
+Payment gateway unavailability
+
+Comprehensive rollback mechanism
+
+Error logging and user notification
+
+Data Flow in Booking Process:
+Input Data:
+
+User ID (from session)
+
+Property ID
+
+Check-in/check-out dates
+
+Number of guests
+
+Payment method details
+
+Special requests (optional)
+
+Output Data:
+
+Booking record with confirmed status
+
+Payment transaction record
+
+Updated availability calendar
+
+Notification records
+
+Invoice document
+
+Database Tables Affected:
+
+bookings - New booking record
+
+payments - Payment transaction
+
+availability - Date blocking
+
+notifications - User alerts
+
+invoices - Receipt generation
+
+Success Criteria:
+Booking successfully created and confirmed
+
+Payment processed and recorded
+
+Dates properly blocked in calendar
+
+Both guest and host notified
+
+All database transactions committed
+
+Security Considerations:
+Validate user ownership throughout process
+
+Ensure payment data is handled securely
+
+Prevent double-booking through proper locking
+
+Audit trail for all booking modifications
